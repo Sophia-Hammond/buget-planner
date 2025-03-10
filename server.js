@@ -1,6 +1,9 @@
 
 const express = require('express');
+const morganLogger = require('./middleware/morganLogger');
+const rateLimiter = require('./middleware/rateLimit');
 const app = express();
+
 
 
 app.get('/', (req, res) => {
