@@ -1,8 +1,9 @@
 
 const express = require('express');
 const morganLogger = require('./middleware/morganLogger');
-const rateLimiter = require('./middleware/rateLimit');
 const helmetMiddleware = require('./middleware/helmet');
+const rateLimiter = require('./middleware/rateLimit');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
