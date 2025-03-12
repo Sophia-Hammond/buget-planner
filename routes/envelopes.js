@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const envelopeController = require(../controllers/envelopeController);
+const envelopeController = require(./controllers/envelopeController);
 
 router.post('/', envelopeController.createEnvelope);
 

@@ -10,3 +10,9 @@ const envelopeSchema = new mongoose.Schema({
         require: true
     }
 });
+
+const Envelope = mongoose.model('Envelope', envelopeSchema);
+
+module.exports = Envelope;
+
+
