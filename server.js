@@ -6,10 +6,13 @@ const rateLimiter = require('./middleware/rateLimit');
 const errorHandler = require('./middleware/errorHandler');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const connectDB = require('./db');
 
 const envelopeRoutes = require('./routes/envelopes');
 
 const app = express();
+
+connectDB();
 
 app.use(helmetMiddleware);
 app.use(morganLogger);
