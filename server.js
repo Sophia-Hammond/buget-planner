@@ -23,6 +23,8 @@ app.get('/', (req, res) => {
     res.send('Hello!');
 });
 
+app.use(errorHandler);
+
 
 const PORT = process.env.PORT || 3000;
    app.listen(PORT, () => {

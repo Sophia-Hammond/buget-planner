@@ -6,6 +6,6 @@ router.post('/', envelopeController.createEnvelope);
 
 router.get('/', envelopeController.getAllEnvelopes);
 
-router.get('/total budger', envelopeController.getTotalBudget);
+router.get('/total budget', envelopeController.getTotalBudget);
 
 module.exports = router;

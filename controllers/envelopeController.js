@@ -31,7 +31,7 @@ const getTotalBudget = async (req, res) => {
         const totalBudget = await Envelope.aggregate([
             { $group: { _id: null, total: { $sum: '$amount'} } }
         ]);
-        res.json({ totalBudget: totalBudget[0].total });
+        res.json({ totalBudget: totalBudget[0]?.total || 0 });
     } catch (error) {
         res.status(500).json({ error: 'Budget undetermined, error in calculation, please try again.'});
     }
