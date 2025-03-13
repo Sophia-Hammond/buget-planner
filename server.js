@@ -16,12 +16,8 @@ connectDB();
 
 app.use(helmetMiddleware);
 app.use(morganLogger);
-app.use(rateLimitMiddleware);
-
-const dbURI = process.env.DB_URI;
-mongoose.connect(dbURI, { useNewUrParser: true, useUnifiedTopology: true})
-        .then(() => console.log('mongoDB connected successfully'))
-        .catch((err) => console.log('not able to connect to MongoDB:', err));
+app.use(rateLimiter);
+app.use('/envelopes', envelopeRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello!');
@@ -29,7 +25,6 @@ app.get('/', (req, res) => {
 
 
 const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
+   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
