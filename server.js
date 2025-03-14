@@ -15,6 +15,7 @@ const app = express();
 
 connectDB();
 
+app.use(express.json());
 app.use(helmetMiddleware);
 app.use(morganLogger);
 app.use(rateLimiter);

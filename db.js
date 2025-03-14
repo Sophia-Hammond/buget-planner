@@ -6,11 +6,11 @@ const connectDB = async () => {
     if (!dbURI) {
       throw new Error('DB_URI is not defined in .env file');
     }
-    await mongoose.connect(dbURI);  // Removed deprecated options
+    await mongoose.connect(dbURI);  
     console.log('MongoDB connected successfully');
   } catch (err) {
     console.error('Error connecting to MongoDB:', err.message);
-    process.exit(1);  // Exit process with failure code
+    process.exit(1);  
   }
 };
 
