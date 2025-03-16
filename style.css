@@ -5,74 +5,54 @@
     box-sizing: border-box;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Sour Gummy", sans-serif
   }
-  
-/* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Style the navigation bar */
-  nav {
-    background-color: #333;
+ 
+nav {
+    background-color: #c883e4;
     width: 100%;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+   
   }
   
   ul {
     display: flex;
     list-style-type: none;
     width: 100%;
-    justify-content: space-around; /* Evenly spaces out the items */
+    justify-content: space-around; 
   }
   
   li {
     text-align: center;
   }
   
-  /* Style the links */
   a {
-    color: white;
+    color: #751196;
     text-decoration: none;
     font-size: 18px;
-    padding: 20px 0; /* Add padding only vertically */
+    padding: 20px 0; 
   }
   
-  /* Highlight the first and last link */
-  .highlighted a {
-    color: #ff9900; /* Highlight color */
-  }
-  
-  /* Change color on hover */
-  a:hover {
-    color: #ff9900;
-  }
   
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Sour Gummy", sans-serif;
     background-color: #afaffd;
     padding: 0px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 h1 {
     color: #751196;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:"Sour Gummy", sans-serif;
 }
 
 .form-container {
@@ -83,6 +63,7 @@ h1 {
     margin-bottom: 30px;
     max-width: 400px;
     margin: 0 auto;
+    padding-right: 200px;
 }
 
 h2 {
@@ -115,7 +96,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #c781e8;
 }
 
 .envelopes-container {
@@ -128,11 +109,11 @@ ul {
 }
 
 li {
-    padding: 10px;
-    background-color: #fff;
+    padding: 0%;
+    background-color:none
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 0pxsolid #ccc;
+    border-radius:none;
     font-size: 16px;
 }
 
@@ -140,13 +121,11 @@ li {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 150px; 
-    height: 200px; 
+    width: 500px; 
+    height: 500px; 
+    padding-top: 80px;
 }
 
-.left {
-    left: 0; 
-}
 
 .right {
     right: 0; 
