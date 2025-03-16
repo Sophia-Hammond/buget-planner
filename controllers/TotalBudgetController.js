@@ -1,14 +1,29 @@
-const submitTotalBudget = async (req, res) => {
-    const { totalBudget } = req.body;
+const TotalBudget = require('../models/totalBudgetModel');
+const Envelope = require('../models/envelopeModel');
 
-    if (!totalBudget = typeof totalBudget !== 'number') {
-        return res.status(400).json({ error: 'Invalid input, please provide your total budget amount.'});
-    }
+const calculateAndSaveTotalBudget = async (req, res) => {
     try {
-        console.log('Total Budget:', totalBudget);
+        const totalBudget = await Envelope.aggregate([
+            { $group: { _id: null, total: { $sum: '$amount' } } }
+        ]);
+
+        let existingTotalBudget = await TotalBudget.findOne();
+
+        if (existingTotalBudget) {
+            existingTotalBudget.totalAmount = totalBudget[0]?.total || 0;
+            existingTotalBudget.updatedAt = Date.now();
+            await existingTotalBudget.save();
+        } else {
+            const newTotalBudget = new TotalBudget({
+                totalAmount: totalBudget[0]?.total || 0,
+            });
+            await newTotalBudget.save();
+        }
+
+        res.json({ totalBudget: totalBudget[0]?.total || 0});
     } catch (error) {
-        res.status(500).json({ error: 'error submitting total budget, please try again!'})
+        res.status(500).json({ error: 'Error calculating and saving total budget, please try again'});
     }
 };
 
-module.exports = { submitTotalBudget };
+module.exports = { calculateAndSaveTotalBudget };
