@@ -1,4 +1,4 @@
-const Envelope = require('../models/envelope');
+const Envelope = require('../models/envelopeModel');
 
 const createEnvelope = async (req, res) => {
     const { title, amount } = req.body;
