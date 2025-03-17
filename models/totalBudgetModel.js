@@ -6,7 +6,7 @@ const totalBudgetSchema = new mongoose.Schema({
         required: true,
     },
     userId: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
     updatedAt: {
