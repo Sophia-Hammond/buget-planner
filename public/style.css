@@ -124,16 +124,16 @@ button:hover {
 }
 
 ul {
-    list-style-type: none;
+    list-style-type: none
 }
 
 li {
-    padding: 0%;
-    background-color:none
-    margin-bottom: 10px;
-    border: 0pxsolid #ccc;
-    border-radius:none;
-    font-size: 16px;
+    padding: 0%
+    background-color:0%
+    margin-bottom: 10px
+    border: 0pxsolid #ccc
+    border-radius:none
+    font-size: 16px
 }
 
 .side-image {
@@ -141,7 +141,7 @@ li {
     top: 70%;
     transform: translateY(-50%);
     width: 700px; 
-    height: 698px; 
+    height: 690px; 
     
 }
 

@@ -6,13 +6,16 @@ const morganLogger = require('./middleware/morganLogger');
 const helmetMiddleware = require('./middleware/helmet');
 const rateLimiter = require('./middleware/rateLimit');
 const errorHandler = require('./middleware/errorHandler');
+const authMiddleware = require('./middleware/authMiddleware');
 
+const userRoute = require('./routes/userRoute');
 
 require('dotenv').config();
 const connectDB = require('./db');
 
 const envelopeRoutes = require('./routes/envelopeRoute');
 const totalBudgetRoutes = require('./routes/totalBudgetRoute');
+const wishListRoutes = require('./routes/wishlistRoutes');
 
 const app = express();
 
@@ -25,6 +28,8 @@ app.use(rateLimiter);
 
 app.use('/envelopes', envelopeRoutes);
 app.use('/totalBudget', totalBudgetRoutes);
+app.use('/wishlist', wishListRoutes);
+app.use('/api/users', userRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello!');
