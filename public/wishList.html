@@ -5,36 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Wishlist</title>
-    <link rel="stylesheet" href="/public/css/style.css"> 
+    <link rel="stylesheet" href="/public/style.css"> 
 </head>
 <body>
 
     <h1>Your Wishlist</h1>
 
     <div class="container">
-      <div class="wishlist-section">
+       
+    <div class="wishlist-section">
             <h2>Wishlist</h2>
             <form id="add-item-form">
                 <input type="text" id="item-name" placeholder="Enter item name" required>
                 <button type="submit">Add to Your Wishlist</button>
             </form>
             <div class="wishlist-container" id="wishlist-container">
-                
+               
             </div>
         </div>
 
-        
+     
         <div class="purchased-section">
             <h2>Purchased Items</h2>
             <div class="purchased-container" id="purchased-container">
-              
+               
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-       
+   
         async function getWishlist() {
             try {
                 const response = await axios.get('/wishlist', {
@@ -60,10 +61,52 @@
             }
         }
 
-       
         document.getElementById('add-item-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('item-name').value;
             try {
                 await axios.post('/wishlist', { name }, {
-                    head
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                getWishlist();  
+            } catch (error) {
+                console.error('Error adding item:', error);
+            }
+        });
+
+      
+        async function markAsPurchased(id) {
+            try {
+                await axios.put(`/wishlist/${id}/purchased`, {}, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                getWishlist();  
+            } catch (error) {
+                console.error('Error marking as purchased:', error);
+            }
+        }
+
+        
+        async function deleteItem(id) {
+            try {
+                await axios.delete(`/wishlist/${id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                getWishlist();  
+            } catch (error) {
+                console.error('Error deleting item:', error);
+            }
+        }
+
+        getWishlist();
+    </script>
+
+</body>
+</html>
+
