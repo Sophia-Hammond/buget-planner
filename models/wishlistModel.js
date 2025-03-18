@@ -13,11 +13,11 @@ const wishListSchema = new mongoose.Schema({
         trim: true,
     },
     purchased: {
-        type: bootlean,
-        defult: false
+        type: boolean,
+        default: false
     }
 }, { timestamps: true });
 
 const WishList = mongoose.model('WishList', wishListSchema);
 
-model.exports = WishList;
+module.exports = WishList;
