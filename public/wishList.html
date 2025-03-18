@@ -21,106 +21,50 @@
         </ul>
       </nav>
 
-    <h1>Your Wishlist</h1>
+      <header>
+        <h1>Your Wishlist</h1>
+    </header>
 
-    <div class="container">
+    <div class="wishlist-container">
+        <h2>Wishlist</h2>
        
-    <div class="wishlist-section">
-            <h2>Wishlist</h2>
-            <form id="add-item-form">
-                <input type="text" id="item-name" placeholder="Enter item name" required>
-                <button type="submit">Add to Your Wishlist</button>
-            </form>
-            <div class="wishlist-container" id="wishlist-container">
-               
+        <form id="wishlist-form">
+            <div class="form-group">
+                <label for="item-name">Item Name:</label>
+                <input type="text" id="item-name" name="item-name" placeholder="Enter item name">
+            </div>
+            <div class="form-group">
+                <label for="item-price">Amount:</label>
+                <input type="number" id="item-price" name="item-price" placeholder="Enter item price">
+            </div>
+            <button type="submit">Add to your Wishlist</button>
+        </form>
+
+        
+        <div class="wishlist-info-box">
+            <div class="info-box">
+                <span>Amount of Wishlist Items</span>
+                <span id="wishlist-item-count">0</span>
+            </div>
+            <div class="info-box">
+                <span>Wishlist Item Total:</span>
+                <span id="wishlist-item-total">$0</span>
             </div>
         </div>
 
-     
-        <div class="purchased-section">
+       
+        <div class="purchased-container">
             <h2>Purchased Items</h2>
-            <div class="purchased-container" id="purchased-container">
-               
+            <div class="purchased-items-list" id="purchased-items-list"></div>
+
+            
+            <div class="info-box">
+                <span>Total Amount of Purchased Items:</span>
+                <span id="purchased-item-total">$0</span>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-   
-        async function getWishlist() {
-            try {
-                const response = await axios.get('/wishlist', {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-
-                const wishlistContainer = document.getElementById('wishlist-container');
-                wishlistContainer.innerHTML = '';
-                response.data.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.classList.add('wishlist-item');
-                    itemElement.innerHTML = `
-                        <span>${item.name}</span>
-                        <button onclick="markAsPurchased('${item._id}')">Purchased</button>
-                        <button class="delete-btn" onclick="deleteItem('${item._id}')">Delete</button>
-                    `;
-                    wishlistContainer.appendChild(itemElement);
-                });
-            } catch (error) {
-                console.error('Error fetching wishlist:', error);
-            }
-        }
-
-        document.getElementById('add-item-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('item-name').value;
-            try {
-                await axios.post('/wishlist', { name }, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                getWishlist();  
-            } catch (error) {
-                console.error('Error adding item:', error);
-            }
-        });
-
-      
-        async function markAsPurchased(id) {
-            try {
-                await axios.put(`/wishlist/${id}/purchased`, {}, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                getWishlist();  
-            } catch (error) {
-                console.error('Error marking as purchased:', error);
-            }
-        }
-
-        
-        async function deleteItem(id) {
-            try {
-                await axios.delete(`/wishlist/${id}`, {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                getWishlist();  
-            } catch (error) {
-                console.error('Error deleting item:', error);
-            }
-        }
-
-        getWishlist();
-    </script>
-
+    <script src="app.js"></script>
 </body>
 </html>
-
-
-            

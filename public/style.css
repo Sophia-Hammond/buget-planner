@@ -1,13 +1,19 @@
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
 body {
-    font-family: "Sour Gummy", sans-serif
-  }
- 
+    font-family: "Sour Gummy", sans-serif;
+    background-color: #afaffd;  
+    color: #6b0f70;  
+}
+
+
 nav {
     background-color: #c883e4;
     width: 100%;
@@ -15,27 +21,27 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-   
-  }
-  
-  ul {
+}
+
+ul {
     display: flex;
     list-style-type: none;
     width: 100%;
     justify-content: space-around; 
-  }
-  
-  li {
+}
+
+li {
     text-align: center;
-  }
-  
-  a {
+}
+
+a {
     color: #751196;
     text-decoration: none;
     font-size: 18px;
     padding: 20px 0; 
-  }
-  .info-box {
+}
+
+.info-box {
     background-color: #f4f4f4;
     width: 80%;
     margin: 20px auto;
@@ -52,14 +58,9 @@ nav {
 
 .info-box p {
     font-size: 16px;
-    color: #555;
+    color: #090808;
 }
- 
-body {
-    font-family: "Sour Gummy", sans-serif;
-    background-color: #afaffd;
-   
-}
+
 
 header {
     text-align: center;
@@ -69,87 +70,133 @@ header {
 
 h1 {
     color: #751196;
-    font-family:"Sour Gummy", sans-serif;
+    font-family: "Sour Gummy", sans-serif;
     font-size: 50px;
 }
 
-.form-container {
+
+.wishlist-container {
+    width: 80%;
+    margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 30px 30px rgba(85, 4, 101, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    margin-left: 200px;
-    max-width: 550px;
-    
-   
 }
 
-h2 {
-    color: #0d010d;
+
+.wishlist-container h2 {
+    text-align: center;
+    color: #751196;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-label {
+.wishlist-container .form-group {
+    margin-bottom: 15px;
+}
+
+.wishlist-container label {
     font-size: 14px;
-    margin-bottom: 8px;
+    color: #060506;
     display: block;
+    margin-bottom: 5px;
 }
 
-input {
+.wishlist-container input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
     border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
+.wishlist-container button {
     background-color: #db6ec5;
     color: white;
-    border: none;
+    padding: 12px;
+    width: 100%;
     border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.wishlist-container button:hover {
+    background-color: #0a050c;
+}
+
+
+.wishlist-info-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.wishlist-info-box .info-box {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 48%;  
+    font-size: 16px;
+}
+
+.wishlist-info-box .info-box span {
+    display: block;
+    color: #751196;
+}
+
+
+.purchased-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.purchased-container h2 {
+    color: #751196;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.purchased-items-list {
+    margin-top: 20px;
+}
+
+.purchased-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.purchased-item button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #c781e8;
+.purchased-item button.delete {
+    background-color: #dc3545;
+    margin-left: 10px;
 }
 
-.envelopes-container {
-    max-width: 600px;
-    margin: 0 auto;
+.purchased-container .info-box {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    margin-top: 20px;
 }
-
-ul {
-    list-style-type: none
-}
-
-li {
-    padding: 0%
-    background-color:0%
-    margin-bottom: 10px
-    border: 0pxsolid #ccc
-    border-radius:none
-    font-size: 16px
-}
-
-.side-image {
-    position: absolute;
-    top: 70%;
-    transform: translateY(-50%);
-    width: 700px; 
-    height: 690px; 
-    
-}
-
-
-.right {
-    right: 0; 
-}
-
-/* wish list */
-
-
