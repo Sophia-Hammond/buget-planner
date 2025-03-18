@@ -12,6 +12,11 @@ const wishListSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
+    amount: {
+        type: Number,
+        required: true,
+        min: 0
+    },
     purchased: {
         type: boolean,
         default: false

@@ -50,7 +50,7 @@ const deleteItemFromWishlist = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const item = await WishList.foundOneAndDelete({ _id: id, user: req.user._id });
+        const item = await WishList.findOneAndDelete({ _id: id, user: req.user._id });
         if (!item) {
             return res.status(404).json({ error: 'Item not found' });
         }
