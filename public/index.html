@@ -1,69 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Wishlist</title>
-    <link rel="stylesheet" href="/public/css/style.css"> 
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav>
+        <ul>
+          <li><a href="../public/index.html">Home</a></li>
+          <li><a href="#">All Budget Envelopes</a></li>
+          <li><a href="#">Count-down till next payment</a></li>
+          <li><a href="../public/wishList.html">Wish List</a></li>
+          <li><a href="#">Sign-up/ Sign-in</a></li>
+        </ul>
+      </nav>
+    <header>
+        <h1>Budget Planner</h1>
+    </header>
+    <div class="info-box">
+        <h2>Welcome to Budget Planner</h2>
+        <p>This app helps you manage your budgets, set goals, and track your spending. Stay on top of your finances with ease!</p>
+    </div>
+    <div class="form-container">
+       
+     <h2>Total Budget Amount</h2>
+        <form id="envelope-form">
+           
 
-    <h1>Your Wishlist</h1>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
 
-    <div class="container">
-      <div class="wishlist-section">
-            <h2>Wishlist</h2>
-            <form id="add-item-form">
-                <input type="text" id="item-name" placeholder="Enter item name" required>
-                <button type="submit">Add to Your Wishlist</button>
-            </form>
-            <div class="wishlist-container" id="wishlist-container">
-                
-            </div>
-        </div>
-
-        
-        <div class="purchased-section">
-            <h2>Purchased Items</h2>
-            <div class="purchased-container" id="purchased-container">
-              
-            </div>
-        </div>
+            <button type="submit">Submit</button>
+        </form>
+       
     </div>
 
+    <div class="form-container">
+         
+        <h2>Create a New Budget Envelope</h2>
+        <form id="envelope-form">
+            <label for="title">Envelope Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <button type="submit">Create Envelope</button>
+        </form>
+        <img src="/images/Wish-List-Avatar-2.png" alt="Right Image" class="side-image right">
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-       
-        async function getWishlist() {
-            try {
-                const response = await axios.get('/wishlist', {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-
-                const wishlistContainer = document.getElementById('wishlist-container');
-                wishlistContainer.innerHTML = '';
-                response.data.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.classList.add('wishlist-item');
-                    itemElement.innerHTML = `
-                        <span>${item.name}</span>
-                        <button onclick="markAsPurchased('${item._id}')">Purchased</button>
-                        <button class="delete-btn" onclick="deleteItem('${item._id}')">Delete</button>
-                    `;
-                    wishlistContainer.appendChild(itemElement);
-                });
-            } catch (error) {
-                console.error('Error fetching wishlist:', error);
-            }
-        }
-
-       
-        document.getElementById('add-item-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('item-name').value;
-            try {
-                await axios.post('/wishlist', { name }, {
-                    head
+    <script src="app.js"></script>
+</body>
+</html>
