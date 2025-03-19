@@ -18,7 +18,7 @@ const wishListSchema = new mongoose.Schema({
         min: 0
     },
     purchased: {
-        type: boolean,
+        type: Boolean,
         default: false
     }
 }, { timestamps: true });

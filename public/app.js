@@ -12,7 +12,7 @@ const wishListRoutes = require('../routes/wishlistRoutes');
 
 const app = express();
 
-app.use(express.json();
+app.use(express.json());
 app.use(helmet());
 app.use(morganLogger);
 app.use(rateLimiter);
@@ -25,6 +25,6 @@ app.use('/wishlist', wishListRoutes);
 
 app.get('health', (req, res) => res.status(200).send('OK'));
 
-app get('/', (req, res) => res.send('Hello!'));
+app.get('/', (req, res) => res.send('Hello!'));
 
 module.exports = app;
