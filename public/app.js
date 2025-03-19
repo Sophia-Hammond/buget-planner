@@ -4,6 +4,7 @@ const morganLogger = require('../middleware/morganLogger');
 const rateLimiter = require('../middleware/rateLimit');
 const errorHandler = require('../middleware/errorHandler');
 const authMiddleware = require('../middleware/authMiddleware');
+const countdownRoutes = require('../routes/countdownRoute');
 
 const userRoutes = require('../routes/userRoute');
 const envelopeRoutes = require('../routes/envelopeRoute');
@@ -22,6 +23,7 @@ app.use('/api/users', userRoutes);
 app.use('/envelopes', envelopeRoutes);
 app.use('totalBuget', totalBudgetRoutes);
 app.use('/wishlist', wishListRoutes);
+app.use('/countdown', countdownRoutes);
 
 app.get('health', (req, res) => res.status(200).send('OK'));
 
