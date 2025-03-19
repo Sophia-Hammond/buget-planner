@@ -173,8 +173,8 @@ h1 {
 .countdown-container {
     background: linear-gradient(135deg, #ffafcc, #ffc8dd);
     padding: 20px;
-    width: 90%;
-    max-width: 400px;
+    width: 70vw;
+    max-width: 70vh;
     margin: 50px auto;
     border-radius: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
@@ -189,7 +189,7 @@ h1 {
 
 .countdown-container h1 {
     color: #751196;
-    font-family: "Pacifico", cursive;
+    
     font-size: 24px;
     margin-bottom: 15px;
 }
