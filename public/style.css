@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&display=swap');
 
 * {
     margin: 0;
@@ -6,11 +6,11 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: "Sour Gummy", sans-serif;
     background-color: #afaffd;  
     color: #6b0f70;  
+    text-align: center;
 }
 
 
@@ -40,6 +40,7 @@ a {
     font-size: 18px;
     padding: 20px 0; 
 }
+
 
 .info-box {
     background-color: #f4f4f4;
@@ -85,7 +86,6 @@ h1 {
     margin-bottom: 30px;
 }
 
-
 .wishlist-container h2 {
     text-align: center;
     color: #751196;
@@ -129,28 +129,6 @@ h1 {
 }
 
 
-.wishlist-info-box {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.wishlist-info-box .info-box {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 48%;  
-    font-size: 16px;
-}
-
-.wishlist-info-box .info-box span {
-    display: block;
-    color: #751196;
-}
-
-
 .purchased-container {
     background-color: #fff;
     padding: 20px;
@@ -191,12 +169,81 @@ h1 {
     margin-left: 10px;
 }
 
-.purchased-container .info-box {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 10px;
+
+.countdown-container {
+    background: linear-gradient(135deg, #ffafcc, #ffc8dd);
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #ff66b2; }
+    100% { box-shadow: 0 0 20px #ff66b2; }
+}
+
+.countdown-container h1 {
+    color: #751196;
+    font-family: "Pacifico", cursive;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #d6336c;
+    outline: none;
     font-size: 16px;
+    width: 80%;
+    background: #fff;
+    text-align: center;
+}
+
+button {
+    background-color: #d6336c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #a91d5b;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-top: 20px;
 }
+
+.time-box {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 24px;
+    color: #d6336c;
+    font-weight: bold;
+    width: 80px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-5px); }
+}
+
+
