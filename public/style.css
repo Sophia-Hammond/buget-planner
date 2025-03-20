@@ -75,6 +75,7 @@ h1 {
     font-size: 50px;
 }
 
+/* Wish list page */
 
 .wishlist-container {
     width: 80%;
@@ -170,6 +171,8 @@ h1 {
 }
 
 
+/* Countdown timer page */
+
 .countdown-container {
     background: linear-gradient(135deg, #ffafcc, #ffc8dd);
     padding: 20px;
@@ -252,7 +255,7 @@ button:hover {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&display=swap');
+/* SignUp/ Login Page */
 
 * {
     margin: 0;
@@ -291,7 +294,7 @@ body {
 
 h2 {
     color: #751196;
-    font-size: 24px;
+    font-size: 50px;
     margin-bottom: 15px;
 }
 
