@@ -174,8 +174,11 @@ h1 {
     background: linear-gradient(135deg, #ffafcc, #ffc8dd);
     padding: 20px;
     width: 70vw;
-    max-width: 70vh;
     margin: 50px auto;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; ;
     border-radius: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -231,12 +234,12 @@ button:hover {
 
 .time-box {
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 20px;
     font-size: 24px;
     color: #d6336c;
     font-weight: bold;
-    width: 80px;
+    width: 100px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     animation: bounce 1.5s infinite alternate;
 }
@@ -245,5 +248,6 @@ button:hover {
     0% { transform: translateY(0px); }
     100% { transform: translateY(-5px); }
 }
+
 
 
