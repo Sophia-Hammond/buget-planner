@@ -7,7 +7,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 const countdownRoutes = require('../routes/countdownRoute');
 
 const userRoutes = require('../routes/userRoute');
-const envelopeRoutes = require('../routes/envelopeRoute');
+const envelopeRoute = require('../routes/envelopeRoute');
 const totalBudgetRoutes = require('../routes/totalBudgetRoute');
 const wishListRoutes = require('../routes/wishlistRoutes');
 
@@ -20,7 +20,7 @@ app.use(rateLimiter);
 app.use(authMiddleware);
 
 app.use('/api/users', userRoutes);
-app.use('/envelopes', envelopeRoutes);
+app.use('/envelopes', envelopeRoute);
 app.use('/totalBuget', totalBudgetRoutes);
 app.use('/wishlist', wishListRoutes);
 app.use('/countdown', countdownRoutes);
