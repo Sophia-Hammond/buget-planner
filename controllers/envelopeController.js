@@ -1,5 +1,8 @@
-const Envelope = require('../models/envelopeModel');
 
+// importing the envelope model
+const Envelope = require('../models/envelopeModel'); 
+
+//
 const createEnvelope = async (req, res) => {
     const { title, amount } = req.body;
 
