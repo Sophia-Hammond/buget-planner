@@ -8,4 +8,6 @@ router.post('/', envelopeController.createEnvelope);
 // Route for getting all envelopes
 router.get('/', envelopeController.getAllEnvelopes);
 
+router.delete('/:title', envelopeController.deleteEnvelope);
+
 module.exports = router;
