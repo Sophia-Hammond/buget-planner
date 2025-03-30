@@ -7,7 +7,7 @@ const envelopeSchema = new mongoose.Schema({
     },
     amount: {
         type: Number,
-        require: true
+        required: true
     }
 });
 

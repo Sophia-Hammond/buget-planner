@@ -20,7 +20,7 @@ app.use(express.json()); // For parsing application/json
 app.use(helmet()); // For securing HTTP headers
 app.use(morganLogger); // For logging HTTP requests
 app.use(rateLimiter); // For limiting repeated requests
-app.use(authMiddleware); // For checking authentication on protected routes
+
 
 // API Routes
 app.use('/api/users', userRoutes);
