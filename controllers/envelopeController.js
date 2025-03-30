@@ -1,43 +1,24 @@
 
-// importing the envelope model
-const Envelope = require('../models/envelopeModel'); 
+const Envelope = require('../models/envelopeModel');
 
-//
 const createEnvelope = async (req, res) => {
-    const { title, amount } = req.body;
-
-    if (!title || !amount || typeof title !== 'string' || typeof amount !== 'number') {
-        return res.status(400).json({ error: 'Invalid input. Please add your title and amount. '});
-    }
-
     try {
+        const { title, amount } = req.body;
         const newEnvelope = new Envelope({ title, amount });
         await newEnvelope.save();
-        res.status(201).json({message: 'Your Envelope has been created!', envelope: newEnvelope});
+        res.json({ message: 'Envelope created successfully!' });
     } catch (error) {
-        res.status(500).json({error: 'error, your envelope was not created, please try again'});
+        res.status(500).json({ error: 'Error creating envelope' });
     }
 };
-
 
 const getAllEnvelopes = async (req, res) => {
     try {
         const allEnvelopes = await Envelope.find();
         res.json(allEnvelopes);
     } catch (error) {
-        res.status(500).json({ error: 'We have not retrieved the envelopes, please try again.'});
+        res.status(500).json({ error: 'Error fetching envelopes' });
     }
 };
 
-const getTotalBudget = async (req, res) => {
-    try {
-        const totalBudget = await Envelope.aggregate([
-            { $group: { _id: null, total: { $sum: '$amount'} } }
-        ]);
-        res.json({ totalBudget: totalBudget[0]?.total || 0 });
-    } catch (error) {
-        res.status(500).json({ error: 'Budget undetermined, error in calculation, please try again.'});
-    }
-};
-
-module.exports = { createEnvelope, getAllEnvelopes, getTotalBudget };
+module.exports = { createEnvelope, getAllEnvelopes };
