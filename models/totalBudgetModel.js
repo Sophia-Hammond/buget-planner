@@ -15,4 +15,4 @@ const totalBudgetSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('TotalBdget', totalBudgetSchema);
+module.exports = mongoose.model('TotalBudget', totalBudgetSchema);

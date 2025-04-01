@@ -7,42 +7,45 @@ const rateLimiter = require('./middleware/rateLimit');
 const errorHandler = require('./middleware/errorHandler');
 const connectDB = require('./db');
 
-// Routes imports
+// Import Routes
 const countdownRoutes = require('./routes/countdownRoute');
 const userRoutes = require('./routes/userRoute');
 const envelopeRoutes = require('./routes/envelopeRoute');
 const totalBudgetRoutes = require('./routes/totalBudgetRoute');
 const wishListRoutes = require('./routes/wishlistRoutes');
 
-// Initialize express app
+// Initialize Express App
 const app = express();
 
-// Middleware Setup
-app.use(express.json()); // For parsing application/json
-app.use(helmet()); // For securing HTTP headers
-app.use(morganLogger); // For logging HTTP requests
-app.use(rateLimiter); // For limiting repeated requests
+// Middleware
+app.use(express.json()); // Parse JSON request body
+app.use(helmet()); // Secure HTTP headers
+app.use(morganLogger); // Log HTTP requests
+app.use(rateLimiter); // Rate limiting for security
 
 // API Routes
 app.use('/api/users', userRoutes);
-app.use('/envelopes', envelopeRoutes);
-app.use('/totalBudget', totalBudgetRoutes);
-app.use('/wishlist', wishListRoutes);
-app.use('/countdown', countdownRoutes);
+app.use('/api/envelopes', envelopeRoutes);
+app.use('/api/totalBudget', totalBudgetRoutes);
+app.use('/api/wishlist', wishListRoutes);
+app.use('/api/countdown', countdownRoutes);
 
-// Health check endpoint
+// Health Check Endpoint
 app.get('/health', (req, res) => res.status(200).send('OK'));
 
-// Root endpoint
-app.get('/', (req, res) => res.send('Hello! Your API is running.'));
+// Root Endpoint
+app.get('/', (req, res) => res.send('Hello! Your Budget Planner API is running.'));
 
-// Error handling middleware
+// Error Handling Middleware
 app.use(errorHandler);
 
 // Connect to MongoDB
-connectDB();
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+connectDB().then(() => {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}).catch(err => {
+    console.error('Failed to connect to MongoDB:', err);
+    process.exit(1);
 });

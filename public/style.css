@@ -380,3 +380,24 @@ button:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
+
+
+.envelope {
+    background-color: pink;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
