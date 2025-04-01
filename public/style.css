@@ -401,3 +401,11 @@ button:hover {
     font-size: 12px;
 }
 
+.wishlist-box {
+    background-color: pink;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+

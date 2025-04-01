@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchTotalBudget();
     fetchEnvelopes();
     fetchWishList();
+    fetchCountdown();
+    fetchUser();
+
 });
 
 
