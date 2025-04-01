@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
 async function fetchTotalBudget() {
     try {
         const response = await fetch("/api/totalBudget");
@@ -38,7 +37,6 @@ async function fetchEnvelopes() {
     }
 }
 
-
 document.getElementById("envelope-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     
@@ -67,7 +65,6 @@ document.getElementById("envelope-form").addEventListener("submit", async (e) =>
         console.error("Error creating envelope:", error);
     }
 });
-
 
 
 async function fetchWishList() {
