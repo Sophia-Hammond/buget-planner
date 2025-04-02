@@ -81,7 +81,7 @@ async function fetchWishList() {
                     <div class="wishlist-box">
                         <h3>${item.name}</h3>
                         <p>Amount: $${item.amount}</p>
-                        <p>${item.purchased ? "✅ Purchased" : "❌ Not Purchased"}</p>
+                        <p>${item.purchased ? "Purchased" : "Not Purchased"}</p>
                     </div>
                 `;
             }

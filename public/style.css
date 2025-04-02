@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Sour+Gummy&display=swap');
 
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Websites background, fonts, and text color */
 body {
     font-family: "Sour Gummy", sans-serif;
     background-color: #afaffd;  
@@ -13,7 +16,7 @@ body {
     text-align: center;
 }
 
-
+/* navigation bar design */
 nav {
     background-color: #c883e4;
     width: 100%;
@@ -40,29 +43,7 @@ a {
     font-size: 18px;
     padding: 20px 0; 
 }
-
-
-.info-box {
-    background-color: #f4f4f4;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px; 
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.info-box h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.info-box p {
-    font-size: 16px;
-    color: #090808;
-}
-
-
+/* Header& h1 budget planner */
 header {
     text-align: center;
     margin-top: 50px;
@@ -73,6 +54,124 @@ h1 {
     color: #751196;
     font-family: "Sour Gummy", sans-serif;
     font-size: 50px;
+}
+
+/* first white box that says welcome and give some context */
+.info-box{
+    background-color: #f4f4f4;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.info-box h2 {
+    text-align: center;
+    color: #751196;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* next white box that holds total budget amount form with submit button  */
+.total-budget-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+.total-budget-container h2 {
+    text-align: center;
+    color: #751196;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.total-budget-container form-group {
+    margin-bottom: 15px;
+}
+
+.total-budget-container label {
+    font-size: 14px;
+    color: #060506;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.total-budget-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.total-budget-container button {
+    background-color: #db6ec5;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.total-budget-container button:hover {
+    background-color: #0a050c;
+}
+
+/* create new envelope budget */
+
+.create-envelope-container {
+    margin: auto;
+    padding: 20px;
+    border-radius:8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: auto;
+}
+
+.create-envelope-container h2 {
+    color: #751196;
+    font-size: 50px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.create-envelope-container input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid#db6ec5;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.create-envelope-container button {
+    background-color: #db6ec5;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+    animation: glow 2s infinite alternate;
+}
+
+button:hover {
+    background-color: #a74dfb;
+}
 }
 
 /* Wish list page */
