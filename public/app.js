@@ -1,13 +1,9 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     fetchTotalBudget();
     fetchEnvelopes();
-    fetchWishList();
-    fetchCountdown();
-    fetchUser();
-
+    
 });
-
+// homepage 
 async function fetchTotalBudget() {
     try {
         const response = await fetch("/api/totalBudget");
@@ -18,24 +14,53 @@ async function fetchTotalBudget() {
     }
 }
 
-
 async function fetchEnvelopes() {
     try {
         const response = await fetch("/api/envelopes");
         const envelopes = await response.json();
-        const container = document.querySelector(".all-envelopes");
+        const container = document.querySelector(".all-envelopes .envelope-gallery");
         container.innerHTML = "";
         
         envelopes.forEach(env => {
             const div = document.createElement("div");
             div.classList.add("envelope");
-            div.innerHTML = `<h3>${env.title}</h3><p>Amount: $${env.amount}</p>`;
+            div.innerHTML = `
+                <div class="envelope-box">
+                    <h3>${env.title}</h3>
+                    <p>Amount: $${env.amount}</p>
+                </div>
+            `;
             container.appendChild(div);
         });
     } catch (error) {
         console.error("Error fetching envelopes:", error);
     }
 }
+
+document.getElementById("submit-total-budget").addEventListener("click", async () => {
+    const amount = document.getElementById("total-budget-amount").value;
+    
+    if (!amount) {
+        alert("Please enter a valid amount.");
+        return;
+    }
+
+    try {
+        const response = await fetch("/api/totalBudget", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount })
+        });
+
+        if (response.ok) {
+            fetchTotalBudget(); // Refresh total budget
+        } else {
+            alert("Failed to update total budget.");
+        }
+    } catch (error) {
+        console.error("Error updating total budget:", error);
+    }
+});
 
 document.getElementById("envelope-form").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -66,28 +91,4 @@ document.getElementById("envelope-form").addEventListener("submit", async (e) =>
     }
 });
 
-
-async function fetchWishList() {
-    try {
-        const response = await fetch("/api/wishlist");
-        const wishlist = await response.json();
-        
-        const gridItems = document.querySelectorAll(".grid-item"); // All placeholders
-        gridItems.forEach(item => item.innerHTML = ""); // Clear existing images
-
-        wishlist.forEach((item, index) => {
-            if (index < gridItems.length) { // Replace only available placeholders
-                gridItems[index].innerHTML = `
-                    <div class="wishlist-box">
-                        <h3>${item.name}</h3>
-                        <p>Amount: $${item.amount}</p>
-                        <p>${item.purchased ? "Purchased" : "Not Purchased"}</p>
-                    </div>
-                `;
-            }
-        });
-    } catch (error) {
-        console.error("Error fetching wishlist:", error);
-    }
-}
 

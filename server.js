@@ -17,6 +17,9 @@ const wishListRoutes = require('./routes/wishlistRoutes');
 // Initialize Express App
 const app = express();
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Middleware
 app.use(express.json()); // Parse JSON request body
 app.use(helmet()); // Secure HTTP headers
