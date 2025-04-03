@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const totalBudgetController = require('../controllers/TotalBudgetController');
 
-router.get('/', totalBudgetController.calculateAndSaveTotalBudget);
+router.get('/', (req, res) => {
+    res.json({ totalBudget: 5000 }); 
+});
 
 module.exports = router;

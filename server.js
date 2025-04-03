@@ -26,12 +26,19 @@ app.use(helmet()); // Secure HTTP headers
 app.use(morganLogger); // Log HTTP requests
 app.use(rateLimiter); // Rate limiting for security
 
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+});
+
 // API Routes
 app.use('/api/users', userRoutes);
 app.use('/api/envelopes', envelopeRoutes);
 app.use('/api/totalBudget', totalBudgetRoutes);
 app.use('/api/wishlist', wishListRoutes);
 app.use('/api/countdown', countdownRoutes);
+
+
 
 // Health Check Endpoint
 app.get('/health', (req, res) => res.status(200).send('OK'));
